@@ -19,3 +19,18 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 import 'cypress-xpath'
+
+
+const testomatioReporter = require('@testomatio/reporter/lib/adapter/cypress-plugin');
+
+/**
+ * @type {Cypress.PluginConfig}
+ */
+module.exports = (on:any, config: any) => {
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
+
+  testomatioReporter(on, config);
+
+  return config;
+};
